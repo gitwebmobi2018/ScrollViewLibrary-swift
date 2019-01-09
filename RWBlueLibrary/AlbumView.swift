@@ -18,13 +18,12 @@ class AlbumView: UIView {
   }
   
   private func commonInit() {
-    // Setup the background
     backgroundColor = .black
-    // Create the cover image view
+    
     coverImageView = UIImageView()
     coverImageView.translatesAutoresizingMaskIntoConstraints = false
     addSubview(coverImageView)
-    // Create the indicator view
+    
     indicatorView = UIActivityIndicatorView()
     indicatorView.translatesAutoresizingMaskIntoConstraints = false
     indicatorView.activityIndicatorViewStyle = .whiteLarge
@@ -35,6 +34,12 @@ class AlbumView: UIView {
         self.indicatorView.stopAnimating()
       }
     }
+    
+//    valueObservation = coverImageView.observe(\.image, options: [NSKeyValueObservingOptions.new], changeHandler: { (imgView, change) in
+//      if change.newValue is UIImage {
+//        self.indicatorView.stopAnimating()
+//      }
+//    })
     
     addSubview(indicatorView)
     

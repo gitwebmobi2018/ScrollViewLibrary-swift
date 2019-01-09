@@ -11,6 +11,8 @@ final class ViewController: UIViewController {
     private var currentAlbumData: [AlbumData]?
     private var allAlbums = [Album]()
   
+  static let IndexRestorationKey = "currentAlbumIndex"
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         allAlbums = LibraryAPI.shared.getAlbums()
@@ -21,6 +23,23 @@ final class ViewController: UIViewController {
       horizontalScrollerView.delegate = self
       horizontalScrollerView.reload()
     }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    horizontalScrollerView.scrollToView(at: currentAlbumIndex, animated: false)
+  }
+  
+  override func encodeRestorableState(with coder: NSCoder) {
+    coder.encode(currentAlbumIndex, forKey: ViewController.IndexRestorationKey)
+    super.encodeRestorableState(with: coder)
+  }
+  
+  override func decodeRestorableState(with coder: NSCoder) {
+    super.decodeRestorableState(with: coder)
+    currentAlbumIndex = coder.decodeInteger(forKey: ViewController.IndexRestorationKey)
+    showDataForAlbum(at: currentAlbumIndex)
+    horizontalScrollerView.reload()
+  }
   
     private func showDataForAlbum(at index: Int) {
         if (index < allAlbums.count && index > -1) {
