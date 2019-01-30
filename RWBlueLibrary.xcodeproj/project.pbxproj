@@ -77,11 +77,10 @@
 		4A9EC58421E354FF0022F481 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				EDDF66351EBD2B5F006123DA /* API */,
 				EDDF66211EBD28EF006123DA /* Info.plist */,
 				EDDF66151EBD28EF006123DA /* AppDelegate.swift */,
 				EDDF661C1EBD28EF006123DA /* Assets.xcassets */,
-				EDDF66351EBD2B5F006123DA /* API */,
-				EDDF66361EBD2B8C006123DA /* HTTPClient.swift */,
 				EDDF661E1EBD28EF006123DA /* LaunchScreen.storyboard */,
 				EDDF66191EBD28EF006123DA /* Main.storyboard */,
 			);
@@ -129,6 +128,7 @@
 		EDDF66351EBD2B5F006123DA /* API */ = {
 			isa = PBXGroup;
 			children = (
+				EDDF66361EBD2B8C006123DA /* HTTPClient.swift */,
 				4A9EC58521E356870022F481 /* LibraryAPI.swift */,
 				4A9EC58721E358230022F481 /* PersistencyManager.swift */,
 			);

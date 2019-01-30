@@ -29,17 +29,12 @@ class AlbumView: UIView {
     indicatorView.activityIndicatorViewStyle = .whiteLarge
     indicatorView.startAnimating()
     
+    // KVO-Observeration implementation
     valueObservation = coverImageView.observe(\.image, options: [.new]) { [unowned self] observed, change in
       if change.newValue is UIImage {
         self.indicatorView.stopAnimating()
       }
     }
-    
-//    valueObservation = coverImageView.observe(\.image, options: [NSKeyValueObservingOptions.new], changeHandler: { (imgView, change) in
-//      if change.newValue is UIImage {
-//        self.indicatorView.stopAnimating()
-//      }
-//    })
     
     addSubview(indicatorView)
     
